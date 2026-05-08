@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location Tracker</title>
+</head>
+<body>
+  <h2>Loading...</h2>
+
+  <script>
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        document.body.innerHTML =
+          "<h2>Location Received</h2>" +
+          "<p>Latitude: " + lat + "</p>" +
+          "<p>Longitude: " + lon + "</p>";
+
+        // Send location to your server here
+        console.log(lat, lon);
+      },
+      (error) => {
+        alert("Location permission denied.");
+      }
+    );
+  </script>
+</body>
+</html>
